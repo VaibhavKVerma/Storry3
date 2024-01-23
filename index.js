@@ -4,11 +4,13 @@ require("dotenv").config({ path: dotEnvPath });
 const express = require("express");
 const app = express();
 
-const mongoDbConnect = require("./db/mongodb");
+const mongoDb = require("./db/mongodb");
+const redis = require("./db/redis");
 
 const init = async () => {
   try {
-    await mongoDbConnect.connect();
+    await mongoDb();
+    redis();
     app.listen(process.env.PORT_NUMBER, () => {
       console.log("Connection Started on PORT", process.env.PORT_NUMBER);
     });

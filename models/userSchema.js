@@ -41,6 +41,9 @@ const User = sequelize.define(
       type: DataTypes.BOOLEAN,
       defaultValue: true,
     },
+    jwtToken: {
+      type: DataTypes.STRING,
+    },
   },
   {
     indexes: [

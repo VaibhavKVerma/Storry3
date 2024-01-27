@@ -59,8 +59,8 @@ const deleteUser = async (id) => {
 };
 
 module.exports = {
-    createUser,
-    getUser,
-    updateUser,
-    deleteUser
-}
+  createUser,
+  getUser,
+  updateUser,
+  deleteUser,
+};

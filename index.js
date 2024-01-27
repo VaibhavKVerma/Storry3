@@ -1,11 +1,10 @@
 const resolve = require("path").resolve;
 const dotEnvPath = resolve(".env");
 require("dotenv").config({ path: dotEnvPath });
-const express = require("express");
-const app = express();
 
 const mongoDb = require("./db/mongodb");
 const redis = require("./db/redis");
+const app = require('./start');
 
 const init = async () => {
   try {
@@ -28,8 +27,6 @@ const init = async () => {
       redisClient.closeConnection();
       process.exit(0);
     });
-
-    
 
     app.listen(process.env.PORT_NUMBER, () => {
       console.log("Connection Started on PORT", process.env.PORT_NUMBER);
